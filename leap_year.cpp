@@ -9,23 +9,29 @@
 
 int main() {
     // this function is the game
-    std::string userAgeAsString;
-    int userAge;
+    std::string userYearAsString;
+    int userYear;
 
     // input
-    std::cout << "Please enter your age : ";
-    std::cin >> userAgeAsString;
+    std::cout << "Please enter the year : ";
+    std::cin >> userYearAsString;
 
     // process & output
     try {
-        userAge = std::stoi(userAgeAsString);
-        if (userAge >= 25 && userAge <= 39) {
-            std::cout << "You are of a reasonable age to date my grandchild."
-            << std::endl;
+        userYear = std::stoi(userYearAsString);
+        if (userYear % 4 == 0) {
+            if (userYear % 100 == 0) {
+                if (userYear % 400 == 0) {  
+                } else {
+                    std::cout << "" << userYear " is not a leap year."
+                    << std::endl;
+            } else {
+                std::cout << "" << userYear " is a leap year."
+                << std::endl;
         } else {
-            std::cout << "You are not the right age to date my grandchild."
+            std::cout << "" << userYear " is not a leap year."
             << std::endl;
-        }
+        
     } catch (std::invalid_argument) {
         std::cout << "Invalid age entered, please try again." << std::endl;
     }
